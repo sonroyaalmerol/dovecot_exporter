@@ -1,8 +1,8 @@
-FROM golang:1.8-alpine
+FROM golang:1.24-alpine
 ADD . /go/src/github.com/kumina/dovecot_exporter
 WORKDIR /go/src/github.com/kumina/dovecot_exporter
 RUN apk add --no-cache git && \
-    go get -v ./... && \
+    go mod tidy && \
     go build
 
 FROM alpine:latest

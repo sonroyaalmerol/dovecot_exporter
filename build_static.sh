@@ -11,7 +11,7 @@ update-ca-certificates
 # Build the dovecot_exporter.
 cd /dovecot_exporter
 export GOPATH=/gopath
-go get -d ./...
+go mod tidy
 go build --ldflags '-extldflags "-static"'
 strip dovecot_exporter
 EOF
